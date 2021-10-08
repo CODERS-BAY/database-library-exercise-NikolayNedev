@@ -1,0 +1,33 @@
+Customer { customer_id: integer (PK), cusomer_name: varchar, customer_adress: varchar}
+Reservation { reservation_id: integer (PK). reservation_date: date, customer-id: integer(FK)}
+Loan { loan_id: integer (PK), loan_date: date, customer-id (FK) }
+Book_Copy {book_copy_id: integer (PK), book_copy_name: varchar, loan_id: integer (FK)}
+         CROSS TABLE : Reservation - Book_Copy {reservation_id: integer (PK-FK) , book_copy_id:integer (PK-FK)}
+Employee {eployee_id: integer (PK), eployee_name: varchar, loan_id: integer (FK)
+Journal {journal_id: integer (PK), journal_name: varchar, issue_id(FK), shelf_id(FK), publisher_id(FK)}
+          CROSS TABLE : Journal - Customer {customer_id: integer (PK-FK) , journal_id:integer (PK-FK)}		 
+Issue { issue_id:integer (PK), issue_name: varchar, issue_date: date,}
+Article {article_id: integer (PK), article_name:varchar, journal_id:integer(FK), subjectarea_id:integer(FK)}
+		CROSS TABLE : Article - Keyword {article_id: integer (PK-FK) , keyword_id:integer (PK-FK)}
+		CROSS TABLE : Article - Author {article_id: integer (PK-FK) , author_id:integer (PK-FK)}
+Keyword {keyword_id: integer}
+		CROSS TABLE : Keyword - Synonyms {keyword_id: integer (PK) , synonyms_id:integer (PK)}
+		CROSS TABLE : Keyword - Book {keyword_id: integer (PK-FK) , book_id:integer (PK-FK)}
+Synonyms {synonyms_id: integer}
+Book {book_id:integer(PK), book_name: varchar, loan_id:integer(FK), subjectarea_id:integer(FK), publisher_id:integer(FK), shelf_id(FK)}
+		CROSS TABLE : Customer - Book {customer-id: integer (PK-FK) , book_id:integer (PK-FK)}
+		CROSS TABLE : Author - Book {author_id: integer (PK-FK) , book_id:integer (PK-FK)}
+Shelf {shelf_id: integer (PK), shelf_adress:varchar, subjectarea_id(FK)}
+SubjectArea {subjectarea_id: integer (PK), subjectarea_name: varchar}
+Publisher { publisher_id:integer (PK), publisher_name: varchar}		
+Author {author_id: integer (PK), author_name:varchar}
+		
+		 
+		 
+		 
+
+
+
+
+
+		 
